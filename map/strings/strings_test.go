@@ -7,6 +7,45 @@ import (
 	sslice "github.com/murosan/goutils/slice/strings"
 )
 
+func TestEquals(t *testing.T) {
+	cases := []struct {
+		a, b map[string]string
+		expected bool
+	}{
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			true,
+		},
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "Node.js"},
+			false,
+		},
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go"},
+			false,
+		},
+		{nil,map[string]string{"go": "Go"},false },
+		{map[string]string{},map[string]string{},true },
+	}
+
+	for i, c := range cases {
+		res := Equals(c.a, c.b)
+		if res != c.expected {
+			t.Errorf(`
+[map > strings > Equals]
+Index:    %d
+InputA:   %v
+InputB:   %v
+Expected: %t
+Actual:   %t
+`, i, c.a, c.b, c.expected, res)
+		}
+	}
+}
+
 func TestKeys(t *testing.T) {
 	cases := []struct {
 		in       map[string]string

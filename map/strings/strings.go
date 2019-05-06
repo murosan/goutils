@@ -1,6 +1,25 @@
 // Package strings provides utility function for map of string.
 package strings
 
+// Equals returns if two map are equal.
+func Equals(a, b map[string]string) bool {
+	if (a == nil) != (b == nil) {
+		return false
+	}
+
+	if len(a) != len(b) {
+		return false
+	}
+
+	for k, v := range a {
+		if w, ok := b[k]; !ok || v != w {
+			return false
+		}
+	}
+
+	return true
+}
+
 // Keys returns keys of the map
 func Keys(m map[string]string) []string {
 	a := make([]string, len(m))
