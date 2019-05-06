@@ -1,7 +1,7 @@
 // Package strings provides utility function for map of string.
 package strings
 
-// Equals returns if two map are equal.
+// Equals returns if the maps have the same key-value pairs.
 func Equals(a, b map[string]string) bool {
 	if (a == nil) != (b == nil) {
 		return false
@@ -31,6 +31,11 @@ func Keys(m map[string]string) []string {
 	}
 
 	return a
+}
+
+// NotEqual returns if the maps does not have the same key-value pairs.
+func NotEqual(a, b map[string]string) bool {
+	return !Equals(a, b)
 }
 
 // Values returns values of the map

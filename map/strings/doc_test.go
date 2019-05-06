@@ -40,6 +40,22 @@ func ExampleKeys() {
 	// []
 }
 
+func ExampleNotEqual() {
+	m1 := map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"}
+	m2 := map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"}
+	m3 := make(map[string]string)
+
+	fmt.Println(NotEqual(m1, m2))
+	fmt.Println(NotEqual(m1, m3))
+	fmt.Println(NotEqual(m3, nil))
+	fmt.Println(NotEqual(nil, nil))
+	// Output:
+	// false
+	// true
+	// true
+	// false
+}
+
 func ExampleValues() {
 	m1 := map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"}
 	m2 := make(map[string]string)

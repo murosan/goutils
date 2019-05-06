@@ -9,7 +9,7 @@ import (
 
 func TestEquals(t *testing.T) {
 	cases := []struct {
-		a, b map[string]string
+		a, b     map[string]string
 		expected bool
 	}{
 		{
@@ -27,8 +27,8 @@ func TestEquals(t *testing.T) {
 			map[string]string{"go": "Go"},
 			false,
 		},
-		{nil,map[string]string{"go": "Go"},false },
-		{map[string]string{},map[string]string{},true },
+		{nil, map[string]string{"go": "Go"}, false},
+		{map[string]string{}, map[string]string{}, true},
 	}
 
 	for i, c := range cases {
@@ -72,6 +72,45 @@ Input:    %v
 Expected: %s
 Actual:   %s
 `, i, c.in, res, c.expected)
+		}
+	}
+}
+
+func TestNotEqual(t *testing.T) {
+	cases := []struct {
+		a, b     map[string]string
+		expected bool
+	}{
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			false,
+		},
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "Node.js"},
+			true,
+		},
+		{
+			map[string]string{"go": "Go", "rb": "Ruby", "js": "JavaScript"},
+			map[string]string{"go": "Go"},
+			true,
+		},
+		{nil, map[string]string{"go": "Go"}, true},
+		{map[string]string{}, map[string]string{}, false},
+	}
+
+	for i, c := range cases {
+		res := NotEqual(c.a, c.b)
+		if res != c.expected {
+			t.Errorf(`
+[map > strings > NotEqual]
+Index:    %d
+InputA:   %v
+InputB:   %v
+Expected: %t
+Actual:   %t
+`, i, c.a, c.b, c.expected, res)
 		}
 	}
 }
