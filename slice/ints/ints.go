@@ -1,4 +1,4 @@
-// Package ints provides utility functions for slice of ints.
+// Package ints provides utility functions for slice of int.
 package ints
 
 // Contains returns true if slice contains the int value.

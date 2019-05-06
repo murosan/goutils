@@ -1,4 +1,4 @@
-// Package strings provides utility functions for slice of strings.
+// Package strings provides utility functions for slice of string.
 package strings
 
 // Contains returns true if slice contains the string.

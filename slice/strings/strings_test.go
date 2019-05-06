@@ -21,7 +21,7 @@ func TestContains(t *testing.T) {
 		res := Contains(c.a, c.b)
 		if res != c.expected {
 			t.Errorf(`
-[strings > Contains]
+[slice > strings > Contains]
 Index:    %d
 InputA:   %v
 InputB:   %v
@@ -51,7 +51,7 @@ func TestEquals(t *testing.T) {
 		res := Equals(c.a, c.b)
 		if res != c.expected {
 			t.Errorf(`
-[strings > Equals]
+[slice > strings > Equals]
 Index:    %d
 InputA:   %v
 InputB:   %v
@@ -79,7 +79,7 @@ func TestNotContain(t *testing.T) {
 		res := NotContain(c.a, c.b)
 		if res != c.expected {
 			t.Errorf(`
-[strings > NotContain]
+[slice > strings > NotContain]
 Index:    %d
 InputA:   %v
 InputB:   %v
@@ -109,7 +109,7 @@ func TestNotEqual(t *testing.T) {
 		res := NotEqual(c.a, c.b)
 		if res != c.expected {
 			t.Errorf(`
-[strings > NotEqual]
+[slice > strings > NotEqual]
 Index:    %d
 InputA:   %v
 InputB:   %v
