@@ -29,3 +29,13 @@ func Equals(a, b []string) bool {
 
 	return true
 }
+
+// NotContain returns true if slice does not contain the string.
+func NotContain(a []string, s string) bool {
+	return !Contains(a, s)
+}
+
+// NotEqual returns true if two slices are not equal.
+func NotEqual(a, b []string) bool {
+	return !Equals(a, b)
+}

@@ -29,3 +29,13 @@ func Equals(a, b []int) bool {
 
 	return true
 }
+
+// NotContain returns true if slice does not contain the int value.
+func NotContain(a []int, s int) bool {
+	return !Contains(a, s)
+}
+
+// NotEqual returns true if two slices are not equal.
+func NotEqual(a, b []int) bool {
+	return !Equals(a, b)
+}

@@ -34,3 +34,34 @@ func ExampleEquals() {
 	// false
 	// true
 }
+
+func ExampleNotContain() {
+	a := []string{"a", "b", "c"}
+
+	fmt.Println(NotContain(a, "a"))
+	fmt.Println(NotContain(a, "d"))
+	fmt.Println(NotContain(nil, ""))
+	// Output:
+	// false
+	// true
+	// true
+}
+
+func ExampleNotEqual() {
+	a := []string{"a", "b", "c"}
+	b := []string{"a", "b", "c"}
+	c := []string{"a", "b", ""}
+	d := []string{}
+
+	fmt.Println(NotEqual(a, b))
+	fmt.Println(NotEqual(a, c))
+	fmt.Println(NotEqual(a, d))
+	fmt.Println(NotEqual(nil, a))
+	fmt.Println(NotEqual(nil, nil))
+	// Output:
+	// false
+	// true
+	// true
+	// true
+	// false
+}

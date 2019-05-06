@@ -61,3 +61,61 @@ Actual:   %t
 		}
 	}
 }
+
+func TestNotContain(t *testing.T) {
+	cases := []struct {
+		a        []int
+		b        int
+		expected bool
+	}{
+		{[]int{1, 2, 3}, 1, false},
+		{[]int{1, 2, 3}, 4, true},
+		{[]int{1}, 1, false},
+		{[]int{}, 0, true},
+		{nil, 0, true},
+	}
+
+	for i, c := range cases {
+		res := NotContain(c.a, c.b)
+		if res != c.expected {
+			t.Errorf(`
+[ints > NotContain]
+Index:    %d
+InputA:   %v
+InputB:   %v
+Expected: %t
+Actual:   %t
+`, i, c.a, c.b, c.expected, res)
+		}
+	}
+}
+
+func TestNotEqual(t *testing.T) {
+	cases := []struct {
+		a, b     []int
+		expected bool
+	}{
+		{[]int{1, 2, 3}, []int{1, 2, 3}, false},
+		{[]int{1, 2, 3}, []int{1, 2, 4}, true},
+		{[]int{1}, []int{1}, false},
+		{[]int{1, 2}, []int{1, 2, 3}, true},
+		{[]int{}, []int{}, false},
+		{[]int{}, nil, true},
+		{nil, []int{}, true},
+		{nil, nil, false},
+	}
+
+	for i, c := range cases {
+		res := NotEqual(c.a, c.b)
+		if res != c.expected {
+			t.Errorf(`
+[ints > NotEqual]
+Index:    %d
+InputA:   %v
+InputB:   %v
+Expected: %t
+Actual:   %t
+`, i, c.a, c.b, c.expected, res)
+		}
+	}
+}
