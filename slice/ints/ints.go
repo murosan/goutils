@@ -1,8 +1,8 @@
-// Package strings provides utility functions for slice of strings.
-package strings
+// Package ints provides utility functions for slice of ints.
+package ints
 
-// Contains returns true if slice contains the string.
-func Contains(a []string, s string) bool {
+// Contains returns true if slice contains the int value.
+func Contains(a []int, s int) bool {
 	for _, v := range a {
 		if v == s {
 			return true
@@ -12,7 +12,7 @@ func Contains(a []string, s string) bool {
 }
 
 // Equals returns true if two slices are equal.
-func Equals(a, b []string) bool {
+func Equals(a, b []int) bool {
 	if (a == nil) != (b == nil) {
 		return false
 	}
